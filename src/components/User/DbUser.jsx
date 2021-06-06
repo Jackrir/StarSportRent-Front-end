@@ -7,6 +7,7 @@ import refreshToken from '../RefreshToken';
 
 class DbUser extends Component {
 
+    
     constructor(props) {
         super(props);
 
@@ -39,7 +40,7 @@ class DbUser extends Component {
     }
 
     setSelection(row) {
-        this.setState({ currentRow: row.userId });
+        this.setState({ currentRow: row[0] });
     }
 
     editUser() {
@@ -100,18 +101,21 @@ class DbUser extends Component {
                 > {this.state.text[0]}
                 </Button>
                 <DataGrid rows={state.rows} columns={state.columns} pageSize={11}
-                    onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
+
+                    onSelectionModelChange={(newSelection) => {
+                        this.setSelection(newSelection.selectionModel);
+                      }}
                 />
                 <Button
                     className="btn btn-primary btn-lg disabled"
                     onClick={(event) => this.editUser()}
-                    style={{ width: '45%', backgroundColor: '#006F00', marginTop: "720px", marginRight: "10%" }}
+                    style={{ width: '45%', backgroundColor: '#006F00', marginTop: "20px", marginRight: "10%" }}
                 > {this.state.text[1]}
                 </Button>
                 <Button
                     className="btn btn-primary btn-lg disabled"
                     onClick={(event) => this.deleteUser()}
-                    style={{ width: '45%', backgroundColor: '#003600', marginTop: "720px" }}
+                    style={{ width: '45%', backgroundColor: '#003600', marginTop: "20px" }}
                 > {this.state.text[2]}
                 </Button>
             </div>
@@ -123,7 +127,7 @@ class DbUser extends Component {
         var i = 0;
         result.forEach(element => {
             res[i] = {
-                id: i,
+                id: element.userId,
                 userId: element.userId,
                 name: element.name,
                 email: element.email,

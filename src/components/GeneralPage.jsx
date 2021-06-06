@@ -71,7 +71,7 @@ class Index extends Component {
             <div style={{ width: "1879px", height: "970px", backgroundImage: "url(./Wall.jpg)" }}>
                 <nav class="navbar navbar-light bg-light">
                     <span class="navbar-brand mb-0 h1">StarSportRent</span>
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons" onChange={this.changeRadio} style={{marginLeft: "50%"}}>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons" onChange={this.changeRadio} style={{marginLeft: "60%"}}>
                         <label class="btn btn-secondary" style={this.state.appStyle1}>
                             <input type="radio" name="options" id="option1" autocomplete="off" value="en"/> en
                         </label>

@@ -138,6 +138,12 @@ class AddItem extends Component {
         }
     }
 
+    getURL() {
+        var otherWindow = window.open();
+        otherWindow.opener = null;
+        otherWindow.location.href = "https://savepice.ru";
+    }
+
     render() {
         return (
             <div className="container">
@@ -161,7 +167,14 @@ class AddItem extends Component {
                             <input className="form-control" id="Info" name="Info" value={this.state.Info} onChange={this.changeInfo} />
                             </label>
                             <label className="form-group" style={{ width: "600px" }}> URLphoto
-                            <input className="form-control" id="URLphoto" name="URLphoto" value={this.state.URLphoto} onChange={this.changeURLphoto} />
+                            <div style={{ width: "80%", overflow: "auto"}}>
+                            <input className="form-control" style={{ width: "100%" }} id="URLphoto" name="URLphoto" value={this.state.URLphoto} onChange={this.changeURLphoto} />
+                            </div>
+                            <div style={{ width: "20%", marginLeft: "81%", marginTop: "-6%", overflow: "auto"}}>
+                            <label
+                                className="btn btn-primary btn-lg disabled"
+                                onClick={this.getURL}
+                                style={{ width: '100%', backgroundColor: '#00AF00', height: "39px"  }} >...</label></div>
                             </label>
                             <label className="form-group" style={{ width: "600px" }}> CostPerHour
                             <input className="form-control" type="number" id="CostPerHour" name="CostPerHour" value={this.state.CostPerHour} onChange={this.changeCostPerHour} />

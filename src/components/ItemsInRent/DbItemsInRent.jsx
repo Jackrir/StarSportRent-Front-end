@@ -34,9 +34,10 @@ class DbItemsInRent extends Component {
     addItemsInRent() {
         window.location.href = "/addItemsInRent";
     }
-
+    
     setSelection(row) {
-        this.setState({ currentRow: {itemId: row.itemId, rentId: row.rentId} });
+        let s = row[0].split("|")
+        this.setState({ currentRow: {itemId: s[0], rentId: s[1]} });
     }
 
     deleteSucces(element) {
@@ -89,12 +90,14 @@ class DbItemsInRent extends Component {
                 > {this.state.text[0]}
                 </Button>
                 <DataGrid rows={state.rows} columns={state.columns} pageSize={11}
-                    onSelectionChange={(newSelection) => { this.setSelection(this.state.rows[newSelection.rowIds]); }}
+                    onSelectionModelChange={(newSelection) => {
+                        this.setSelection(newSelection.selectionModel);
+                      }}
                 />
                 <Button
                     className="btn btn-primary btn-lg disabled"
                     onClick={(event) => this.deleteItemsInRent()}
-                    style={{ width: '45%', backgroundColor: '#003600', marginTop: "720px", marginLeft: "55%" }}
+                    style={{ width: '45%', backgroundColor: '#003600', marginTop: "20px", marginLeft: "55%" }}
                 > {this.state.text[2]}
                 </Button>
             </div>
@@ -106,7 +109,7 @@ class DbItemsInRent extends Component {
         var i = 0;
         result.forEach(element => {
             res[i] = {
-                id: i,
+                id: element.itemId + "|" + element.rentId,
                 itemId: element.itemId,
                 rentId: element.rentId
             };
