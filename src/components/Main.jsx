@@ -30,11 +30,14 @@ import CreateRent from './Worker/CreateRent';
 
 
 
+
 class Main extends Component {
     render() {
         return (
             <Switch>
                 <Route path="/index" component={Index}></Route>
+                
+                
 
                 <Route path="/adminlogin" component={AdminLogin}></Route>
                 <Route path="/db" component={DbHeader}></Route>

@@ -4,6 +4,7 @@ import { baseUrl } from '../baseURL';
 import Select from 'react-select';
 import getCookie from '../baseURL';
 import refreshToken from '../RefreshToken';
+import {Notify} from './IoTData'
 
 
 class Maintenance extends Component {
@@ -246,6 +247,7 @@ class Maintenance extends Component {
                                 </Button>
                             </div>
                         </form>
+                        <Notify/>
 
                     </div>
                 </div>

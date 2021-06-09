@@ -4,6 +4,10 @@ import { baseUrl } from '../baseURL';
 import Select from 'react-select';
 import getCookie from '../baseURL';
 import refreshToken from '../RefreshToken';
+import {Notify} from './IoTData'
+
+
+
 
 
 class CreateRent extends Component {
@@ -40,6 +44,7 @@ class CreateRent extends Component {
 
         this.changeText = this.changeText.bind(this);
         this.changeTime = this.changeTime.bind(this);
+        this.changeText2 = this.changeText2.bind(this);
     }
 
     createRent() {
@@ -113,6 +118,12 @@ class CreateRent extends Component {
     changeTime(event) {
         this.setState({ time: event.target.value });
         this.getCost(event.target.value)
+    }
+
+    changeText2(data) {
+        
+        let t = this.state.textarea
+        this.setState({ textarea: t + data });
     }
 
     changeText(event) {
@@ -321,6 +332,7 @@ class CreateRent extends Component {
                                 </Button>
                             </div>
                         </form>
+                        <Notify/>
 
                     </div>
                 </div>
