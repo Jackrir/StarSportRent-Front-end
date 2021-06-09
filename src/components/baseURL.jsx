@@ -1,6 +1,6 @@
 //export const baseUrl = 'https://b20c443ec594.ngrok.io/api';
-export const baseUrl = 'https://localhost:44309/api';
-//export const baseUrl = 'https://starsportrent.azurewebsites.net/api';
+//export const baseUrl = 'https://localhost:44309/api';
+export const baseUrl = 'https://starsportrent.azurewebsites.net/api';
 export default function getCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');

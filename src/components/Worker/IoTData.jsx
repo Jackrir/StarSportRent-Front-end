@@ -6,7 +6,7 @@ export const Notify = () => {
 
   useEffect(() => {
     const connect = new HubConnectionBuilder()
-      .withUrl("https://localhost:44309/api/hubs/notifications")
+      .withUrl("https://starsportrent.azurewebsites.net/api/hubs/notifications")
       .withAutomaticReconnect()
       .build();
 
